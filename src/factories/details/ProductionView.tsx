@@ -37,7 +37,7 @@ import classes from './ProductionView.module.css';
 
 const progressValues: { value: FactoryProgressStatus; label: string }[] = [
   {
-    value: 'draft',
+    value: 'Draft',
     label: 'Borrador',
   },
   {

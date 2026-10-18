@@ -28,7 +28,7 @@ export const factoriesSlice = createSlice({
         state.factories[id] = {
           inputs: [],
           outputs: [{ resource: null, amount: null }],
-          progress: 'draft',
+          progress: 'Draft',
           ...factory,
           id,
         };

@@ -64,7 +64,7 @@ export const gameFactoriesActions = createActions({
       name: generateFactoryName(),
       inputs: [],
       outputs: [{ resource: null, amount: null }],
-      progress: 'draft',
+      progress: 'Draft',
     };
     state.games.games[gameId] = {
       id: gameId,
