@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ES2020", "ESNext.Collection"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Paths */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Plugins */
+    "plugins": [
+      // { "name": "typescript-plugin-css-modules" }, // TODO try to re-enable this
+      {
+        "name": "ts-plugin-sort-import-suggestions",
+        // Matches `@/`, `../` and `./`, move them up in the suggestions (This is the default config if you leave it empty)
+        "moveUpPatterns": ["@/", "@/core/zustand", "\\.{1,2}/"],
+        // Move `dist` down in the suggestions, by deafult it's `[]`
+        "moveDownPatterns": ["^zustand", "^node:test"]
+      }
+    ]
+  },
+  "include": ["src", "scripts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

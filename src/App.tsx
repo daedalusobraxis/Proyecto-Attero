@@ -1,0 +1,236 @@
+import {
+  Alert,
+  Button,
+  Center,
+  Group,
+  Loader,
+  MantineProvider,
+  Modal,
+  Text,
+  Title,
+  v8CssVariablesResolver,
+} from '@mantine/core';
+import '@mantine/core/styles.css';
+import '@mantine/dropzone/styles.css';
+import { Notifications } from '@mantine/notifications';
+import '@mantine/notifications/styles.css';
+
+import { ModalsProvider } from '@mantine/modals';
+import { ErrorBoundary } from '@sentry/react';
+import {
+  IconAlertCircle,
+  IconBrandDiscord,
+  IconReload,
+} from '@tabler/icons-react';
+import { useEffect } from 'react';
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation,
+  useNavigate,
+  useRouteError,
+} from 'react-router-dom';
+import { LoginPage } from './auth/LoginPage';
+import { PrivacyPolicy } from './auth/privacy/PrivacyPolicy';
+import { SyncManager } from './auth/sync/SyncManager';
+import { CodexRoutes } from './codex/CodexRoutes';
+import { CodexSpotlight } from './codex/spotlight/CodexSpotlight';
+import { useStore } from './core/zustand';
+import { GamesRoutes } from './games/page/GamesRoutes';
+import { AppLayout } from './layout/AppLayout';
+import { PWAUpdatePrompt } from './pwa/PWAUpdatePrompt';
+import { FactoryRoutes } from './routes/FactoriesRoutes';
+import { MapRoutes } from './routes/MapRoutes';
+import { theme } from './theme';
+import { ToolsRoutes } from './tools/page/ToolsRoutes';
+
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '') || '/';
+
+function SpotlightLayout() {
+  return (
+    <>
+      <CodexSpotlight />
+      <Outlet />
+    </>
+  );
+}
+
+function RootLayout() {
+  return (
+    <>
+      <SyncManager />
+      <Outlet />
+    </>
+  );
+}
+
+const router = createBrowserRouter(
+  [
+    {
+      element: <RootLayout />,
+      children: [
+        {
+          path: '/privacy-policy',
+          element: <PrivacyPolicy />,
+        },
+        {
+          element: <SpotlightLayout />,
+          children: [
+            {
+              element: <AppLayout />,
+              children: [
+                {
+                  path: '/factories/*',
+                  element: <FactoryRoutes />,
+                  ErrorBoundary: () => {
+                    throw useRouteError();
+                  },
+                },
+                {
+                  path: '/games/*',
+                  element: <GamesRoutes />,
+                  ErrorBoundary: () => {
+                    throw useRouteError();
+                  },
+                },
+                {
+                  path: '/codex/*',
+                  element: <CodexRoutes />,
+                  ErrorBoundary: () => {
+                    throw useRouteError();
+                  },
+                },
+                {
+                  path: '/tools/*',
+                  element: <ToolsRoutes />,
+                  ErrorBoundary: () => {
+                    throw useRouteError();
+                  },
+                },
+                {
+                  path: '/map/*',
+                  element: <MapRoutes />,
+                  ErrorBoundary: () => {
+                    throw useRouteError();
+                  },
+                },
+                {
+                  path: '*',
+                  element: <Redirect to="/factories" />,
+                },
+              ],
+            },
+            {
+              path: '/login',
+              element: <LoginPage />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  { basename },
+);
+
+function Redirect({ to }: { to: string }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate({
+      pathname: to,
+      search: location.search,
+      hash: location.hash,
+    });
+  }, [location, navigate, to]);
+
+  return null;
+}
+
+export default function App() {
+  const hasRehydrated = useStore(
+    state => state.gameSave.hasRehydratedLocalData,
+  );
+
+  if (!hasRehydrated) {
+    console.log('Waiting for rehydration');
+    return (
+      <MantineProvider
+        theme={theme}
+        forceColorScheme="dark"
+        cssVariablesResolver={v8CssVariablesResolver}
+      >
+        <Modal
+          opened
+          onClose={() => {}}
+          closeOnClickOutside={false}
+          closeOnEscape={false}
+          withCloseButton={false}
+          centered
+          size="sm"
+        >
+          <Center p="md">
+            <Loader size="xl" />
+          </Center>
+        </Modal>
+      </MantineProvider>
+    );
+  }
+
+  console.log('Rehydrated, rendering app');
+
+  return (
+    <MantineProvider
+      theme={theme}
+      forceColorScheme="dark"
+      cssVariablesResolver={v8CssVariablesResolver}
+    >
+      <ModalsProvider>
+        <ErrorBoundary
+          fallback={
+            <Center mih="50vh">
+              <Alert
+                mt="xl"
+                title={<Title order={3}>Whoops! An error occurred</Title>}
+                color="red"
+                icon={<IconAlertCircle size={64} />}
+                variant="light"
+              >
+                <Text size="md">
+                  An error occurred while rendering the application. Please try
+                  to reload the page.
+                </Text>
+                <Text size="md">
+                  If you are using Google Translate and the problem persists,
+                  please try disabling it.
+                </Text>
+                <Group gap="md" mt="md">
+                  <Button
+                    color="red"
+                    variant="light"
+                    leftSection={<IconReload size={16} />}
+                    onClick={() => window.location.reload()}
+                  >
+                    Reload the page
+                  </Button>
+                  <Button
+                    color="indigo"
+                    leftSection={<IconBrandDiscord size={20} />}
+                    component="a"
+                    href="https://discord.gg/Crd8r87dwY"
+                  >
+                    Report on Discord
+                  </Button>
+                </Group>
+              </Alert>
+            </Center>
+          }
+        >
+          <Notifications position="top-right" zIndex={1000} />
+          <PWAUpdatePrompt />
+          <RouterProvider router={router} />
+        </ErrorBoundary>
+      </ModalsProvider>
+    </MantineProvider>
+  );
+}

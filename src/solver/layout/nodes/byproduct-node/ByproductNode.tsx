@@ -1,0 +1,123 @@
+import { alpha, Box, Flex, Group, Popover, Stack, Text } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import type { NodeProps } from '@xyflow/react';
+import { memo } from 'react';
+import { RepeatingNumber } from '@/core/intl/NumberFormatter';
+import type { FactoryOutput } from '@/factories/Factory';
+import type { FactoryItem } from '@/recipes/FactoryItem';
+import { FactoryItemImage } from '@/recipes/ui/FactoryItemImage';
+import {
+  useIsNodeHighlighted,
+  useSolverHighlightOptional,
+} from '@/solver/layout/highlight/SolverHighlightContext';
+import { NodeActionsBox } from '@/solver/layout/nodes/utils/NodeActionsBox';
+import { InvisibleHandles } from '@/solver/layout/rendering/InvisibleHandles';
+import type { SolverNodeState } from '@/solver/store/Solver';
+import { ByproductNodeActions } from './ByproductNodeActions';
+
+export type IByproductNodeData = {
+  label: string;
+  resource: FactoryItem;
+  value: number;
+  // Only set if the byproduct is required by the user
+  output?: FactoryOutput;
+  outputIndex?: number;
+
+  state?: SolverNodeState;
+};
+
+export type IByproductNodeProps = NodeProps & {
+  data: IByproductNodeData;
+  type: 'Byproduct';
+};
+
+export const ByproductNode = memo((props: IByproductNodeProps) => {
+  const { resource, value, output, outputIndex } = props.data;
+
+  const isByproduct = output == null;
+
+  const [isHovering, { close, open }] = useDisclosure(false);
+
+  const highlight = useSolverHighlightOptional();
+  const isPrimaryHighlighted = highlight?.highlightedNodeId === props.id;
+  const isDimmed = useIsNodeHighlighted(props.id) === false;
+
+  return (
+    <Popover
+      opened={(isHovering || props.selected) && !props.dragging}
+      transitionProps={{}}
+      hideDetached={false}
+    >
+      <Popover.Target>
+        <Box
+          p="sm"
+          style={{
+            borderRadius: 4,
+            border: props.selected
+              ? '1px solid var(--mantine-color-gray-3)'
+              : isPrimaryHighlighted
+                ? '1px solid var(--mantine-color-blue-4)'
+                : '1px solid transparent',
+            opacity: isDimmed ? 0.25 : 1,
+            transition: 'border-color 0.2s, opacity 0.2s',
+          }}
+          bg="teal.9"
+          onMouseEnter={open}
+          onMouseLeave={close}
+        >
+          <Group gap="xs">
+            <Box
+              p="2"
+              style={{ borderRadius: 32 }}
+              bg={
+                !isByproduct
+                  ? 'transparent'
+                  : alpha('var(--mantine-color-orange-4)', 0.5)
+              }
+            >
+              <FactoryItemImage id={resource.id} size={32} highRes />
+            </Box>
+            <Stack gap={2} align="center">
+              <Group gap="xs">
+                <Text size="sm">
+                  {isByproduct && <span>Byproduct: </span>}
+                  <span>{resource.displayName}</span>
+                </Text>
+              </Group>
+              <Text size="xs">
+                <RepeatingNumber value={value} />
+                /min
+              </Text>
+            </Stack>
+          </Group>
+          <InvisibleHandles />
+        </Box>
+      </Popover.Target>
+      <Popover.Dropdown p={0}>
+        <Flex
+          align="stretch"
+          gap={0}
+          direction={{
+            base: 'column',
+            sm: 'row',
+          }}
+        >
+          <Stack gap={0}></Stack>
+          <NodeActionsBox>
+            {props.selected ? (
+              <ByproductNodeActions id={props.id} data={props.data} />
+            ) : (
+              <Stack>
+                <Text fs="italic" size="sm">
+                  {isByproduct
+                    ? 'Click on the node to pick a recipe that processes this byproduct further.'
+                    : 'Click on the node to edit this output or pick a recipe to process it further.'}
+                </Text>
+              </Stack>
+            )}
+          </NodeActionsBox>
+        </Flex>
+      </Popover.Dropdown>
+    </Popover>
+  );
+});

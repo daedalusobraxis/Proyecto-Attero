@@ -1,0 +1,138 @@
+import { Button, Group, LoadingOverlay, TextInput, Title } from '@mantine/core';
+import { IconArrowLeft, IconPlus } from '@tabler/icons-react';
+import { useCallback, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { v4 } from 'uuid';
+import { loglev } from '@/core/logger/log';
+import { useStore } from '@/core/zustand';
+import { FactoryContext } from '@/FactoryContext';
+import { useFactorySimpleAttributes } from '@/factories/store/factoriesSelectors';
+import { AfterHeaderSticky } from '@/layout/AfterHeaderSticky';
+import { FullHeightContainer } from '@/layout/FullHeightContainer';
+import { SolverSolutionFragment } from '@/solver/page/SolverSolutionFragment';
+import { useSolverSolution } from '@/solver/page/useSolverSolution';
+import {
+  SolverRequestDrawer,
+  type SolverRequestTab,
+} from './request-drawer/SolverRequestDrawer';
+import { SolverResetButton } from './SolverResetButton';
+
+const logger = loglev.getLogger('solver:page');
+
+export interface ISolverPageProps {}
+
+export function SolverPage(props: ISolverPageProps) {
+  const navigate = useNavigate();
+  let currentSolverId = useStore.getState().solvers.current;
+
+  if (!currentSolverId) {
+    logger.log('No solver ID, creating');
+    const newSolverId = v4();
+
+    useStore.getState().setCurrentSolver(newSolverId);
+
+    currentSolverId = newSolverId;
+  }
+  const factory = useFactorySimpleAttributes(currentSolverId);
+
+  const {
+    loading,
+    solverGameId,
+    onChangeHandler,
+    solution,
+    suggestions,
+    instance,
+  } = useSolverSolution(currentSolverId, 'standalone');
+  const [drawerTab, setDrawerTab] = useState<SolverRequestTab>(null);
+  const openInputsOutputs = useCallback(
+    () => setDrawerTab('inputs-outputs'),
+    [],
+  );
+
+  return (
+    <FactoryContext.Provider value={currentSolverId}>
+      <LoadingOverlay visible={loading || !instance} />
+
+      <AfterHeaderSticky>
+        <Group gap="sm" justify="space-between">
+          <Group gap="sm">
+            {solverGameId && (
+              <Button
+                component={Link}
+                to="/factories"
+                variant="light"
+                color="gray"
+                leftSection={<IconArrowLeft size={16} />}
+              >
+                All Factories
+              </Button>
+            )}
+            <Title order={4}>
+              <TextInput
+                value={factory.name ?? undefined}
+                placeholder="Nombre de la fábrica"
+                onChange={e => {
+                  useStore
+                    .getState()
+                    .updateFactory(
+                      currentSolverId,
+                      f => (f.name = e.currentTarget.value),
+                    );
+                }}
+              />
+            </Title>
+            {!solverGameId && (
+              <Button
+                variant="filled"
+                onClick={() => {
+                  // Strip share-preview metadata so a dangling shared
+                  // solver becomes a fully-local factory once attached.
+                  // No-op for solvers that were never shared.
+                  useStore.getState().updateSolver(currentSolverId, solver => {
+                    solver.sharedId = undefined;
+                    solver.remoteSharedId = undefined;
+                    solver.isOwner = true;
+                    solver.isFactory = true;
+                  });
+
+                  useStore
+                    .getState()
+                    .addFactoryIdToGame(undefined, currentSolverId);
+
+                  useStore.getState().setCurrentSolver(null);
+
+                  navigate(`/factories/${currentSolverId}/calculator`);
+                }}
+                leftSection={<IconPlus size={16} />}
+              >
+                Añadir al juego
+              </Button>
+            )}
+            <SolverResetButton id={currentSolverId} factory={factory} />
+          </Group>
+          <Group gap="sm">
+            <SolverRequestDrawer
+              factoryId={currentSolverId}
+              solution={solution}
+              onSolverChangeHandler={onChangeHandler}
+              tab={drawerTab}
+              onTabChange={setDrawerTab}
+            />
+          </Group>
+        </Group>
+      </AfterHeaderSticky>
+
+      <FullHeightContainer>
+        {instance && (
+          <SolverSolutionFragment
+            solverId={currentSolverId}
+            suggestions={suggestions}
+            solution={solution!}
+            instance={instance}
+            onOpenInputsOutputs={openInputsOutputs}
+          />
+        )}
+      </FullHeightContainer>
+    </FactoryContext.Provider>
+  );
+}

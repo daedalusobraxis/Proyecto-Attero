@@ -1,0 +1,69 @@
+import type { JSONContent } from '@tiptap/react';
+import type { LogisticType } from '@/recipes/logistics/LogisticTypes';
+
+export type FactoryProgressStatus =
+  | 'Draft'
+  | 'todo'
+  | 'in_progress'
+  | 'done'
+  | 'disabled';
+
+export const isFactoryDisabled = (
+  factory: Pick<Factory, 'progress'> | null | undefined,
+) => factory?.progress === 'disabled';
+
+export interface Factory {
+  id: string;
+  name?: string | null;
+  description?: string | null;
+  notes?: JSONContent | null;
+  inputs: FactoryInput[];
+  outputs: FactoryOutput[];
+  powerConsumption?: number | null;
+  /** Factory-specific building overrides. If set, overrides game-level allowedBuildings */
+  allowedBuildings?: string[] | null;
+  progress?: FactoryProgressStatus | null;
+  boardIndex?: number | null;
+}
+
+export interface FactoryInput {
+  factoryId?: string | null;
+  resource?: string | null;
+  amount?: number | null;
+  note?: string | null;
+  transport?: LogisticType | null;
+  /** @deprecated See constraint = 'exact' */
+  forceUsage?: boolean;
+  constraint?: FactoryInputConstraint;
+  /**
+   * For World inputs (factoryId === WORLD_SOURCE_ID): the resource node ids
+   * (from WorldResourceNodes) the user has assigned to this input from the
+   * map. Purely informational in v1: the solver does not read this field.
+   */
+  nodeIds?: string[];
+}
+
+export type FactoryInputConstraint =
+  | 'input' // Limit solver to use at least this amount + allow solver to allocate extra world resources
+  | 'exact' // Force solver to use this input in exact amount (ex "force usage")
+  | 'max'; // Limit solver to use at most this amount
+
+export interface FactoryOutput {
+  resource: string | null;
+  amount: number | null;
+  somersloops?: number | null;
+  objective?: FactoryOutputObjective;
+  destination?: FactoryOutputDestination;
+}
+
+export type FactoryOutputObjective = 'default' | 'max';
+
+export type FactoryOutputDestination = 'default' | 'depot';
+
+interface FactoriesSettings {
+  noHighlight100PercentUsage?: boolean;
+  highlight100PercentColor?: string;
+}
+
+export const WORLD_SOURCE_ID = 'WORLD';
+export const MANUAL_SOURCE_ID = 'MANUAL';
