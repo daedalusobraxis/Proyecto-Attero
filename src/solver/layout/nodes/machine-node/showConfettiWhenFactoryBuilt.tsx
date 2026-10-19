@@ -40,27 +40,24 @@ export function showConfettiWhenFactoryBuilt(
     title: (
       <Group>
         <IconConfetti />
-        You did it!
+        ¡Lo lograste!
       </Group>
     ),
     children: (
       <Stack gap="xs">
         <Text size="sm">
-          Congratulations, you have <b>built all the machines</b> in this
-          factory: your work here is complete.{' '}
-          <em>At least, for now. Enjoy a well-deserved two-minute break.</em>
+          Enhorabuena, has <b>construido todas las máquinas</b> de esta fábrica: tu trabajo aquí ha terminado.{' '}
+          <em>Al menos, por ahora. Disfruta de un merecido descanso de dos minutos.</em>
         </Text>
         <Divider />
         <Text size="sm">
-          Would you like to reset the build markers? This will only remove the
-          green background and the check icon, making the <b>diagram cleaner</b>
-          .
+          ¿Deseas restablecer los marcadores de compilación? Esto solo eliminará el fondo verde y el icono de marca de verificación, dejando el <b>diagrama más limpio</b>.
         </Text>
       </Stack>
     ),
     labels: {
-      confirm: 'Yes, reset the markers',
-      cancel: 'Leave it as it is',
+      confirm: 'Sí, restablecer los marcadores',
+      cancel: 'Déjalo como está',
     },
     confirmProps: {
       color: 'green',

@@ -83,9 +83,9 @@ async function runSegment(
       stagePadding: 4,
       steps: segment.steps,
       popoverClass: 'sl-tutorial-popover',
-      nextBtnText: 'Next →',
-      prevBtnText: '← Back',
-      doneBtnText: isFinalSegment ? 'Done' : 'Next →',
+      nextBtnText: 'Siguiente →',
+      prevBtnText: '← Atrás',
+      doneBtnText: isFinalSegment ? 'Hecho' : 'Siguiente →',
       onDestroyed: () => {
         unsubscribe();
         if (advancedByNavigation) resolve('advanced');

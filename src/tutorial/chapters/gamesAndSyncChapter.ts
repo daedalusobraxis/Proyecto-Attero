@@ -16,7 +16,7 @@ const ensureGamesMenuOpen = ensurePresent(GAMES_MENU_DROPDOWN, () =>
 
 export const gamesAndSyncChapter: TutorialChapter = {
   id: 'games-and-sync',
-  title: 'Games & Sync',
+  title: 'Partidas y sincronización',
   description:
     'Manage Games, import savegames and sync your work across devices.',
   estimatedMinutes: 3,
@@ -29,18 +29,18 @@ export const gamesAndSyncChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="games-menu"]',
           popover: {
-            title: 'Start with a Game',
+            title: 'Empieza con una partida',
             description:
-              'Everything in the planner lives inside a Game, like a Satisfactory save. You can create several Games (one per playthrough) and switch between them from here.',
+              'Todo en el planificador se encuentra dentro de una «partida», al igual que un archivo guardado en *Satisfactory*. Puedes crear varias partidas (una por cada sesión de juego) y alternar entre ellas desde aquí.',
             side: 'bottom',
           },
         },
         {
           element: GAMES_MENU_DROPDOWN,
           popover: {
-            title: 'The Game menu',
+            title: 'El menú de la partida',
             description:
-              'Click the active Game name in the header to open this menu. From here you can create a new playthrough, rename the active Game, jump to the <strong>Games list</strong>, or <strong>Share</strong> the Game with friends via a link. Your Game is saved automatically once you log in — the “Save game” entry is only a manual fallback.',
+              'Haz clic en el nombre de la partida activa en el encabezado para abrir este menú. Desde aquí puedes crear una nueva partida, cambiar el nombre del juego activo, ir a la <strong>lista de juegos</strong> o <strong>compartir</strong> el juego con amigos mediante un enlace. Tu partida se guarda automáticamente una vez que inicias sesión; la opción «Guardar partida» es solo una alternativa manual.',
             side: 'right',
           },
           onHighlightStarted: chainHooks(
@@ -51,27 +51,27 @@ export const gamesAndSyncChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="realtime-sync-indicator"]',
           popover: {
-            title: 'Realtime sync indicator',
+            title: 'Indicador de sincronización en tiempo real',
             description:
-              'This icon next to the logo tells you whether your Game is synced online. When logged in it turns green and shows the other devices / friends currently editing the same Game. While logged out it stays grey — click it to log in and unlock cloud save, multi-device sync, and sharing.',
+              'Este icono, situado junto al logotipo, indica si tu juego está sincronizado en línea. Cuando inicias sesión, el icono se vuelve de color verde y muestra los otros dispositivos o amigos que están editando el mismo juego en ese momento. Si no has iniciado sesión, permanece de color gris; haz clic en él para iniciar sesión y activar el guardado en la nube, la sincronización entre varios dispositivos y las funciones para compartir.',
             side: 'bottom',
           },
         },
         {
           element: '[data-tutorial-id="user-menu"]',
           popover: {
-            title: 'Login to save online',
+            title: 'Inicia sesión para guardar en línea',
             description:
-              'Log in with Google or Discord and your active Game is uploaded to the cloud automatically — no manual save needed. From that moment every change you make is synced in realtime to the other devices and friends you share the Game with.',
+              'Inicia sesión con Google o Discord y tu partida activa se cargará automáticamente en la nube — no se necesitará guardar manualmente. A partir de ese momento, todos los cambios que realices se sincronizarán en tiempo real con los otros dispositivos y amigos con los que compartas la partida.',
             side: 'bottom',
           },
         },
         {
           element: GAMES_MENU_LIST_ENTRY,
           popover: {
-            title: 'Open the Games page',
+            title: 'Abre la página de partidas',
             description:
-              'This menu entry opens the full Games page, where you can manage every playthrough in one place. Press Next and I will take you there.',
+              'Esta opción del menú abre la página completa de partidas, donde puedes gestionar todas tus partidas en un mismo lugar. Pulsa «Siguiente» y te llevaré allí.',
             side: 'left',
             onNextClick: () => {
               clickSelector(GAMES_MENU_LIST_ENTRY);
@@ -91,27 +91,27 @@ export const gamesAndSyncChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="games-list"]',
           popover: {
-            title: 'The Games page',
+            title: 'La página de partidas',
             description:
-              'Here you see all your Games at a glance. Switch between them, create new ones for different playthroughs, or play one to jump back to its factories.',
+              'Aquí puedes ver todas tus partidas de un vistazo. Cambia entre ellas, crea otras nuevas para distintas sesiones de juego o abre una para retomar el control de sus fábricas.',
             side: 'top',
           },
         },
         {
           element: '[data-tutorial-id="game-share"]',
           popover: {
-            title: 'Share with friends',
+            title: 'Compartir con amigos',
             description:
-              'On any saved Game you get a Share button: it generates a link your friends can open to view and edit the same Game (visible only after you log in and the Game has been saved at least once — once logged in, this happens automatically).',
+              'En cualquier partida guardada aparece un botón «Compartir»: este genera un enlace que tus amigos pueden abrir para ver y editar la misma partida (solo es visible una vez que inicias sesión y la partida se ha guardado al menos una vez; al iniciar sesión, esto ocurre automáticamente).',
             side: 'top',
           },
         },
         {
           element: '[data-tutorial-id="import-from-tools"]',
           popover: {
-            title: 'Import from other tools',
+            title: 'Importar desde otras herramientas',
             description:
-              'Already have a plan in another planner (Satisfactory Tools, etc.)? Import the exported file here so you do not have to start from scratch. No login required.',
+              '¿Ya tienes un plan en otro planificador (Satisfactory Tools, etc.)? Importa el archivo exportado aquí para no tener que comenzar desde cero. No se requiere inicio de sesión.',
             side: 'top',
           },
         },

@@ -58,7 +58,7 @@ export function ChapterOutroModal({
         )}
         {hasNext ? (
           <Text size="sm" c="dark.1" lh={1.55}>
-            Up next:{' '}
+            A continuación:{' '}
             <Text span fw={600} c="gray.0">
               {request.nextChapterTitle}
             </Text>
@@ -68,8 +68,8 @@ export function ChapterOutroModal({
           </Text>
         ) : (
           <Text size="sm" c="dark.1" lh={1.55}>
-            That was the last chapter, you have seen the whole tour. You can
-            re-run any chapter from the help menu in the header.
+            Ese fue el último capítulo; has completado todo el recorrido. Puedes
+            volver a realizar cualquier capítulo desde el menú de ayuda en el encabezado.
           </Text>
         )}
         <Group justify="space-between" mt="xs" gap="sm">
@@ -80,7 +80,7 @@ export function ChapterOutroModal({
               leftSection={<IconTrash size={16} />}
               onClick={() => removeDemoFactories()}
             >
-              Remove tutorial factories
+              Eliminar las fábricas del tutorial
             </Button>
           ) : (
             <span />
@@ -92,7 +92,7 @@ export function ChapterOutroModal({
               leftSection={<IconX size={16} />}
               onClick={onDone}
             >
-              I'm done for now
+              Por ahora he terminado.
             </Button>
             {hasNext && (
               <Button
@@ -111,7 +111,7 @@ export function ChapterOutroModal({
                 }
                 onClick={onContinue}
               >
-                Continue to {request.nextChapterTitle}
+                Continuar a {request.nextChapterTitle}
               </Button>
             )}
           </Group>

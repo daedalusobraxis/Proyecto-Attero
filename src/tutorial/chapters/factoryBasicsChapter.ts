@@ -13,12 +13,12 @@ function demoId(): string | null {
 
 export const factoryBasicsChapter: TutorialChapter = {
   id: 'factory-basics',
-  title: 'Factory basics',
-  description: 'Guided walk through creating your first factory.',
+  title: 'Conceptos básicos de fábrica',
+  description: 'Recorrido guiado por la creación de tu primera fábrica.',
   estimatedMinutes: 4,
   nextChapterId: 'calculator',
   outroBody:
-    'Nice work. You now have a factory with a name, a status, an output and a sourced input. That is the whole anatomy of a production site in the planner.',
+    'Buen trabajo. Ahora tienes una fábrica con un nombre, un estado, una producción y un insumo abastecido. Esa es la anatomía completa de un centro de producción en el planificador.',
   segments: [
     {
       route: '/factories',
@@ -27,18 +27,18 @@ export const factoryBasicsChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="header-tab-factories"]',
           popover: {
-            title: 'The Factories tab',
+            title: 'Sección de fábricas',
             description:
-              'Inside a Game you organize your work into factories. This is the section we will use for the rest of the tour.',
+              'Dentro de una partida, organizas tu trabajo en fábricas. Esta es la sección que utilizaremos durante el resto del recorrido.',
             side: 'bottom',
           },
         },
         {
           element: '[data-tutorial-id="add-factory-btn"]',
           popover: {
-            title: 'Create your first factory',
+            title: 'Crea tu primera fábrica',
             description:
-              'Click “Add Factory” (or “Add first factory” in the empty state), or just press Next and I will do it for you. We are going to build a small Iron Smelter together.',
+              'Haz clic en "Agregar fábrica" (o "Agregar primera fábrica" en el estado vacío), o simplemente presiona Siguiente y yo lo haré por ti. Vamos a construir juntos un pequeño horno de hierro.',
             side: 'bottom',
             // Pressing Next (or Enter / right arrow) clicks the Add Factory
             // button for the user; navigation triggers the next segment.
@@ -61,9 +61,9 @@ export const factoryBasicsChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="factory-detail"]',
           popover: {
-            title: 'Factory created',
+            title: 'Fábrica creada',
             description:
-              'Great, this is your new factory. I will fill in a small Iron Smelter setup as we go. Use Next/Back (or the arrow keys) to step through.',
+              'Genial, esta es tu nueva fábrica. A medida que avancemos, iré añadiendo una pequeña instalación de fundición de hierro. Usa «Siguiente»/«Anterior» (o las teclas de flecha) para ir avanzando paso a paso.',
             side: 'top',
           },
         },
@@ -71,7 +71,7 @@ export const factoryBasicsChapter: TutorialChapter = {
           element: '[data-tutorial-id="factory-properties"]',
           popover: {
             title: 'Name & build status',
-            description: `Every factory has a name and a build status. I named this one "${DEMO_NAME}" and set its status to “Todo”. The status tracks whether a factory is just planned, being built, or already running, and it is also what powers the columns in the Kanban view of the Factories list. Set a factory to “Disabled” to temporarily power it down — it stays here but is excluded from global usage totals and charts, and is hidden from the Kanban board.`,
+            description: `Cada fábrica tiene un nombre y un estado de construcción. He asignado a esta el nombre "${DEMO_NAME}" y he establecido su estado en Pendiente. El estado indica si una fábrica está simplemente planificada, en proceso de construcción o ya en funcionamiento; además, es lo que determina las columnas en la vista Kanban de la lista de fábricas. Si estableces el estado de una fábrica como Deshabilitado, esta quedará desactivada temporalmente: permanecerá en el sistema, pero se excluirá de los totales y gráficos de uso global, y no aparecerá en el tablero Kanban.`,
             side: 'left',
           },
           onHighlightStarted: () => {
@@ -86,8 +86,8 @@ export const factoryBasicsChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="factory-outputs"]',
           popover: {
-            title: 'Outputs',
-            description: `Outputs are what this factory produces. I added Iron Ingot at ${DEMO_OUTPUT_AMOUNT} /min, your target throughput.`,
+            title: 'Productos de salida',
+            description: `Los productos de salida son lo que genera esta fábrica. He añadido lingotes de hierro a razón de ${DEMO_OUTPUT_AMOUNT}/min, que es tu objetivo de producción.`,
             side: 'top',
           },
           onHighlightStarted: () => {
@@ -104,18 +104,18 @@ export const factoryBasicsChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="factory-output-destination"]',
           popover: {
-            title: 'Dimensional Depot',
+            title: 'Depósito dimensional',
             description:
-              'Toggle this on to mark an output as uploaded to the Dimensional Depot. Depot uploads are not counted as supply for other factories, and you can review the totals in the Charts → Dimensional Depot tab.',
+              'Activa esta opción para marcar un producto como subido al Depósito dimensional. Las subidas al Depot no se contabilizan como suministro para otras fábricas; puedes consultar los totales en la pestaña Gráficos → Depósito dimensional.',
             side: 'top',
           },
         },
         {
           element: '[data-tutorial-id="factory-inputs"]',
           popover: {
-            title: 'Inputs',
+            title: 'Entradas',
             description:
-              'Inputs are what this factory consumes. I added Iron Ore (no amount yet, the Calculator tour will fill it in). Each input also has a Source on the left: “World” for raw resources mined from the map, or another factory to chain them together.',
+              'Los insumos son lo que esta fábrica consume. He añadido mineral de hierro (aún sin especificar la cantidad; el recorrido por la calculadora se encargará de completarla). Cada insumo cuenta, además, con una «fuente» a la izquierda: «Mundo», para los recursos básicos extraídos del mapa, u otra fábrica, en caso de encadenar procesos.',
             side: 'bottom',
           },
           onHighlightStarted: () => {
@@ -153,9 +153,9 @@ export const factoryBasicsChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="view-switcher"]',
           popover: {
-            title: 'Three ways to view factories',
+            title: 'Tres formas de ver las fábricas',
             description:
-              'Grid, Kanban and Spreadsheet: pick whichever fits what you are doing. The factory you just built appears in all three.',
+              'Cuadrícula, Kanban y hoja de cálculo: elige la opción que mejor se adapte a lo que estás haciendo. La fábrica que acabas de construir aparece en las tres.',
             side: 'bottom',
           },
         },

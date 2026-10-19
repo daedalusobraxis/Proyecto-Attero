@@ -48,9 +48,9 @@ function ensureDrawerTab(
 
 export const calculatorChapter: TutorialChapter = {
   id: 'calculator',
-  title: 'Calculator',
+  title: 'Calculadora',
   description:
-    'Compute the optimal production chain for a factory using the solver.',
+    'Calcula la cadena de producción óptima para una fábrica utilizando el solucionador.',
   estimatedMinutes: 7,
   nextChapterId: 'factory-linking',
   setup: () => {
@@ -65,9 +65,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="factory-view-switcher"]',
           popover: {
-            title: 'Open the Calculator from a factory',
+            title: 'Abre la calculadora desde la configuración de fábrica',
             description:
-              'Every factory has two views: Overview (the page you are on) and Calculator. Switch with these tabs. I will jump us into the Calculator next.',
+              'Cada fábrica tiene dos vistas: Descripción general (la página en la que estás) y Calculadora. Cambia entre estas pestañas. Iré a la Calculadora a continuación.',
             side: 'bottom',
           },
         },
@@ -83,9 +83,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="solver-graph"]',
           popover: {
-            title: 'The Calculator',
+            title: 'La calculadora',
             description:
-              'The Calculator computes the optimal production chain based on what you want to produce, the resources available, and the recipes you allow. The graph here is the result for our “The Smeltery” factory.',
+              'La calculadora determina la cadena de producción óptima en función de lo que deseas producir, los recursos disponibles y las recetas que permites utilizar. El gráfico que aparece aquí es el resultado para nuestra fábrica «The Smeltery».',
             side: 'top',
             align: 'start',
             popoverClass: 'sl-tutorial-popover sl-tutorial-popover-graph-top',
@@ -95,9 +95,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="calculator-inputs-block"]',
           popover: {
-            title: 'Inputs/Outputs drawer',
+            title: 'Panel de entradas/salidas',
             description:
-              'I just opened the Inputs/Outputs drawer (toggle it from the button at the top right). The inputs and outputs you set on the factory show up here, ready to be adjusted: change amounts, swap constraints, or add new ones.',
+              'Acabo de abrir el panel de Entradas/Salidas (puedes activarlo mediante el botón situado en la parte superior derecha). Las entradas y salidas que configuraste en el proyecto original aparecen aquí, listas para ser ajustadas: puedes modificar sus valores, intercambiar restricciones o añadir otras nuevas.',
             side: 'bottom',
             align: 'end',
           },
@@ -111,9 +111,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="calculator-auto-set"]',
           popover: {
-            title: 'Auto-set from Plan',
+            title: 'Configuración automática a partir del plan',
             description:
-              'Remember our Iron Ore input with no amount? This button fills inputs with the exact amounts the solver computed, no manual math needed. I just clicked it for you: see Iron Ore on the left now reads the optimal amount.',
+              '¿Recuerdas nuestro campo de entrada para el mineral de hierro, que no tenía ninguna cantidad especificada? Este botón rellena los campos con las cantidades exactas calculadas por el solucionador; así no tienes que hacer cálculos manualmente. Acabo de pulsarlo por ti: fíjate en que, a la izquierda, el mineral de hierro muestra ahora la cantidad óptima.',
             side: 'left',
           },
           onHighlightStarted: chainHooks(
@@ -127,9 +127,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="factory-input-constraint"]',
           popover: {
-            title: 'Input constraint modes',
+            title: 'Modos de restricción de entrada',
             description:
-              'This icon sets how the solver treats the amount: “Input” (default here) lets it use at least this amount and pull extra from world resources; “Less than” caps it as a maximum; “Exact” forces the solver to use exactly that amount. Pick the one that matches your in-game supply.',
+              'Este icono determina cómo el motor de cálculo gestiona la cantidad: «Entrada» (opción predeterminada) permite utilizar al menos esa cantidad, recurriendo a recursos globales si es necesario; «Menos de» establece un límite máximo; «Exacto» obliga al motor a utilizar exactamente esa cantidad. Selecciona la opción que se ajuste a tu suministro dentro del juego.',
             side: 'bottom',
             align: 'end',
           },
@@ -143,9 +143,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="calculator-drawer-tab-recipes"]',
           popover: {
-            title: 'Recipes',
+            title: 'Recetas',
             description:
-              'Enable or disable alternate recipes. The solver freely combines any enabled recipe to reach your target output.',
+              'Habilita o deshabilita recetas alternativas. El solucionador combina libremente cualquier receta habilitada para alcanzar tu salida objetivo.',
             side: 'bottom',
           },
           onHighlightStarted: chainHooks(
@@ -158,9 +158,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="recipes-from-savegame"]',
           popover: {
-            title: 'Import recipes from a savegame',
+            title: 'Importar recetas desde una partida guardada',
             description:
-              'Inside the Recipes tab there is a “From Save” button: drop your Satisfactory `.sav` file and it auto-enables only the alternate recipes you have actually unlocked in that game. No more guessing which alternates you have available.',
+              'Dentro de la pestaña «Recetas» hay un botón llamado Desde archivo de guardado: suelta tu archivo `.sav` de Satisfactory y la herramienta habilitará automáticamente solo aquellas recetas alternativas que hayas desbloqueado en esa partida. Se acabó el tener que adivinar qué recetas alternativas tienes disponibles.',
             side: 'left',
           },
           onHighlightStarted: chainHooks(
@@ -173,9 +173,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="calculator-drawer-tab-limitations"]',
           popover: {
-            title: 'Limitations',
+            title: 'Limitaciones',
             description:
-              'Limit what the solver is allowed to use: enable / disable World resources (or set custom max amounts per resource), pick which Buildings the factory can use (with optional override of the global game settings), and choose the Belt / Pipeline tier so over-capacity flows get flagged.',
+              'Limita los recursos que el solucionador puede utilizar: habilita o deshabilita los recursos del mundo (o establece cantidades máximas personalizadas para cada uno), selecciona qué edificios puede emplear la fábrica (con la opción de anular la configuración global del juego) y elige el nivel de las cintas transportadoras o tuberías para que se marquen los flujos que superen la capacidad.',
             side: 'bottom',
           },
           onHighlightStarted: chainHooks(
@@ -190,9 +190,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '.react-flow__node-Resource',
           popover: {
-            title: 'Resource nodes',
+            title: 'Nodos de recurso',
             description:
-              'On the left of the graph: each resource the solver is pulling in. Selecting one opens a panel with details and actions. Let us open this one.',
+              'A la izquierda del gráfico: cada recurso que el solucionador está extrayendo. Seleccionar uno abre un panel con detalles y acciones.',
             side: 'bottom',
           },
           onHighlightStarted: ensureDrawerClosed,
@@ -200,9 +200,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="resource-extractors"]',
           popover: {
-            title: 'Extractors breakdown',
+            title: 'Desglose de extractores',
             description:
-              'For World resources the panel shows how many miners (Mk.1/Mk.2/Mk.3) you need at Impure / Normal / Pure nodes, at 100% and 250% clock. Handy to size your mining setup without leaving the planner.',
+              'En la sección de recursos del mundo, el panel indica cuántas minadoras (Mk.1/Mk.2/Mk.3) necesitas para yacimientos de pureza impura, normal o pura, tanto al 100 % como al 250 % de su capacidad. Resulta muy útil para dimensionar tu infraestructura de extracción sin tener que salir de la herramienta de planificación.',
             side: 'top',
           },
           onHighlightStarted: openAndRehighlight(
@@ -215,18 +215,18 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '.react-flow__node-Machine',
           popover: {
-            title: 'Machine nodes',
+            title: 'Nodos de máquina',
             description:
-              'Each production machine in the chain. Selecting one opens its actions. Let us look at what you can change.',
+              'Al seleccionar una máquina de producción en la cadena, se despliegan sus acciones. Veamos qué puedes modificar.',
             side: 'bottom',
           },
         },
         {
           element: '[data-tutorial-id="machine-action-ignore"]',
           popover: {
-            title: 'Ignore recipe',
+            title: 'Ignorar receta',
             description:
-              'Bans this specific recipe from the plan. The solver will re-plan with whatever other recipes are enabled. Great to test alternates without touching the global Recipes drawer.',
+              'Excluye esta receta específica del plan. El sistema de resolución volverá a generar el plan utilizando el resto de las recetas habilitadas. Es una excelente forma de probar alternativas sin modificar el catálogo general de recetas.',
             side: 'bottom',
           },
           onHighlightStarted: openAndRehighlight(
@@ -237,9 +237,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="machine-action-done"]',
           popover: {
-            title: 'Mark as built',
+            title: 'Marcar como construida',
             description:
-              'Tracks real-world construction progress: tick this when the machine is actually built in your save. Word on the assembly line says there might be a tiny surprise the first time you hit it… maybe try it later. 😉',
+              'Rastrea el progreso de construcción en el mundo real: Marca esta opción cuando la máquina esté realmente construida en tu partida. Se dice que puede haber una pequeña sorpresa la primera vez que la usas… tal vez inténtalo más tarde.',
             side: 'bottom',
           },
           onHighlightStarted: openAndRehighlight(
@@ -250,9 +250,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="machine-action-overclock-somersloops"]',
           popover: {
-            title: 'Overclock and Somersloops',
+            title: 'Overclock y Somersloops',
             description:
-              'Two production tweaks side by side: Overclock runs the machine faster (up to 250%) at the cost of more power, while Somersloops slot in to amplify output (each slot adds extra throughput from the same inputs). The solver uses both when deciding how many machines you need. Click Apply to commit.',
+              'Dos ajustes de producción lado a lado: Overclock hace que la máquina funcione más rápido (hasta 250%) a costa de más energía, mientras que Somersloops se insertan para amplificar la salida (cada ranura agrega un flujo adicional desde las mismas entradas). El solucionador usa ambos cuando decide cuántas máquinas necesita. Haz clic en Aplicar para confirmar.',
             side: 'top',
           },
           onHighlightStarted: openAndRehighlight(
@@ -263,9 +263,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="machine-action-switch-recipe"]',
           popover: {
-            title: 'Alternate recipes',
+            title: 'Recetas alternativas',
             description:
-              'Pick which recipes the solver can use for this output. Uncheck the default and the plan will swap in whichever alternate you enable.',
+              'Elige qué recetas puede usar el solucionador para esta salida. Desmarca la predeterminada y el plan intercambiará por cualquiera de las alternativas que habilites.',
             side: 'top',
           },
           onHighlightStarted: openAndRehighlight(
@@ -278,9 +278,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="solver-graph"]',
           popover: {
-            title: 'See what feeds a machine',
+            title: 'Observa qué alimenta a una máquina',
             description:
-              'Double-click (or double-tap on touch) any node to highlight it and dim everything that is not directly connected. I just did it on a machine for you. Tap the empty space to clear, or double-tap again to toggle off. Handy on mobile when the action panel covers the chain.',
+              'Haz doble clic (o doble toque en pantallas táctiles) en cualquier nodo para resaltarlo y atenuar todo lo que no esté conectado directamente a él. Acabo de hacerlo en un equipo para que lo veas. Toca un espacio vacío para restablecer la vista, o vuelve a hacer doble toque para desactivar el efecto. Resulta muy útil en dispositivos móviles cuando el panel de acciones oculta la cadena.',
             side: 'top',
             align: 'start',
             popoverClass: 'sl-tutorial-popover sl-tutorial-popover-graph-top',
@@ -301,9 +301,9 @@ export const calculatorChapter: TutorialChapter = {
         {
           element: '[data-tutorial-id="byproduct-action-objective"]',
           popover: {
-            title: 'Output nodes: Maximize',
+            title: 'Nodos de salida: Maximizar',
             description:
-              'On the right: your target outputs and any byproducts the plan generates. Selecting one opens its actions. The most useful is the Objective: switch to “Maximize” and the solver will produce as much of this item as possible given your inputs, instead of sticking to a fixed target amount.',
+              'A la derecha: tus salidas objetivo y cualquier subproducto que genere el plan. Seleccionar una abre sus acciones. La más útil es el Objetivo: cambia a “Maximizar” y el solucionador producirá tanto de este artículo como sea posible dadas tus entradas, en lugar de quedarse con una cantidad fija.',
             side: 'left',
             align: 'start',
           },

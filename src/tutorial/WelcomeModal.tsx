@@ -25,37 +25,34 @@ export function WelcomeModal({ opened, onStart, onSkip }: IWelcomeModalProps) {
       onClose={onSkip}
       centered
       size="lg"
-      title={<Title order={3}>Hello, Pioneer! 👷</Title>}
+      title={<Title order={3}>¡Hola pionero! 👷</Title>}
     >
       <Stack gap="lg" pb="xs">
         <Text size="sm" c="dark.1" lh={1.55}>
-          FICSIT™ welcomes you to Satisfactory Logistics: your off-world
-          planning Head Quarter. Blueprint your factories, squeeze every last
-          drop out of your production lines and keep the belts flowing.
+          FICSIT™ te da la bienvenida a Satisfactory Logistics: tu centro de operaciones y planificación fuera del planeta. Diseña tus fábricas, exprime al máximo tus líneas de producción y mantén las cintas transportadoras en constante movimiento.
         </Text>
         <List spacing="sm" size="sm" center>
           <List.Item icon={<IconBuildingFactory size={20} />}>
-            Build factories with inputs, outputs and construction progress
+            Construye fábricas con entradas, salidas y progreso de construcción
           </List.Item>
           <List.Item icon={<IconCalculator size={20} />}>
-            Ask the Calculator for the most efficient production chain
+            Solicita a la calculadora la cadena de producción más eficiente.
           </List.Item>
           <List.Item icon={<IconChartBar size={20} />}>
-            Inspect aggregated flows with graph and Sankey charts
+            Analiza flujos agregados mediante gráficos y diagramas de Sankey
           </List.Item>
           <List.Item icon={<IconDeviceGamepad size={20} />}>
-            Manage multiple Games and sync them across devices
+            Gestiona varios archivos de guardado y sincronízalos entre dispositivos.
           </List.Item>
         </List>
         <Text size="sm" c="dark.1" lh={1.55}>
-          Shall we take a quick tour of the facility? The first chapter runs
-          about{' '}
+          ¿Damos un breve recorrido por las instalaciones? El primer capítulo dura unos {' '}
           <Text span fw={600} c="gray.0">
             {formatEstimatedMinutes(firstChapter.estimatedMinutes)}
           </Text>
-          , and you can pause or resume at any time from the{' '}
+          , y puedes pausar o reanudar en cualquier momento desde el{' '}
           <IconHelp size={16} style={{ verticalAlign: 'text-bottom' }} /> button
-          in the header. Stay alert, stay productive.
+          en el encabezado. Mantente alerta, mantente productivo.
         </Text>
         <Group justify="flex-end" mt="xs" gap="sm">
           <Button
@@ -64,7 +61,7 @@ export function WelcomeModal({ opened, onStart, onSkip }: IWelcomeModalProps) {
             leftSection={<IconX size={16} />}
             onClick={onSkip}
           >
-            I'll figure it out
+            Ya veré cómo lo resuelvo.
           </Button>
           <Button
             leftSection={<IconPlayerPlay size={16} />}
@@ -78,7 +75,7 @@ export function WelcomeModal({ opened, onStart, onSkip }: IWelcomeModalProps) {
             }
             onClick={onStart}
           >
-            Show me around
+            Enséñame el lugar
           </Button>
         </Group>
       </Stack>
