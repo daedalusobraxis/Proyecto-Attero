@@ -172,8 +172,7 @@ export const ResourceNode = memo((props: IResourceNodeProps) => {
             ) : (
               <Stack>
                 <Text fs="italic" size="sm">
-                  Click on the node to see available actions, like editing
-                  amount.
+                  Haz clic en el nodo para ver las acciones disponibles, como editar la cantidad.
                 </Text>
               </Stack>
             )}

@@ -110,8 +110,8 @@ export const ByproductNode = memo((props: IByproductNodeProps) => {
               <Stack>
                 <Text fs="italic" size="sm">
                   {isByproduct
-                    ? 'Click on the node to pick a recipe that processes this byproduct further.'
-                    : 'Click on the node to edit this output or pick a recipe to process it further.'}
+                    ? 'Haz clic en el nodo para seleccionar una receta que procese aún más este subproducto.'
+                    : 'Haz clic en el nodo para editar este resultado o elige una receta para procesarlo más a fondo.'}
                 </Text>
               </Stack>
             )}

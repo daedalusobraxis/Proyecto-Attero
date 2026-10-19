@@ -81,7 +81,7 @@ export function ByproductNodeActions(props: IByproductNodeActionsProps) {
         <>
           <Group justify="space-between" w="100%">
             <Group gap="sm">
-              <Tooltip label="Remove this output">
+              <Tooltip label="Elimina este resultado">
                 <ActionIcon
                   data-tutorial-id="byproduct-action-remove"
                   color="red"
@@ -97,7 +97,7 @@ export function ByproductNodeActions(props: IByproductNodeActionsProps) {
               </Tooltip>
 
               {output.objective === 'max' && (
-                <Tooltip label="Save maximized amount">
+                <Tooltip label="Guardar la cantidad máxima">
                   <ActionIcon
                     color="blue"
                     variant="outline"

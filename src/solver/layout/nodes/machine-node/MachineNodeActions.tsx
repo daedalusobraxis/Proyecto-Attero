@@ -110,7 +110,7 @@ export function MachineNodeActions(props: IMachineNodeActionsProps) {
     <Stack gap="sm" align="flex-start">
       <Group justify="space-between" w="100%">
         <Group gap="sm">
-          <Tooltip label="Ignore this recipe">
+          <Tooltip label="Ignora esta receta">
             <ActionIcon
               data-tutorial-id="machine-action-ignore"
               color="red"
@@ -129,7 +129,7 @@ export function MachineNodeActions(props: IMachineNodeActionsProps) {
           <Tooltip
             label={
               nodeState?.done ? (
-                <span>Remove built marker</span>
+                <span>Eliminar marcador de construcción</span>
               ) : (
                 <span>Mark as built</span>
               )
@@ -154,7 +154,7 @@ export function MachineNodeActions(props: IMachineNodeActionsProps) {
             </ActionIcon>
           </Tooltip>
 
-          <Tooltip label="Remove recipe and replace it with an Input of the same amount.">
+          <Tooltip label="Elimina la receta y sustitúyela por un insumo de la misma cantidad.">
             <ActionIcon
               color="blue"
               variant="outline"
@@ -176,7 +176,7 @@ export function MachineNodeActions(props: IMachineNodeActionsProps) {
           disabled={isApplyDisabled}
           onClick={handleApply}
         >
-          Apply
+          Aplicar
         </Button>
       </Group>
 

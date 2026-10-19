@@ -399,7 +399,7 @@ export const MachineNode = memo((props: IMachineNodeProps) => {
                 <Table.Tr>
                   <Table.Td colSpan={3}>
                     <Text size="sm" fw="bold">
-                      Ingredients
+                      Ingredientes
                     </Text>
                   </Table.Td>
                   <Table.Td colSpan={2}>
@@ -450,7 +450,7 @@ export const MachineNode = memo((props: IMachineNodeProps) => {
                 <Table.Tr>
                   <Table.Td colSpan={5}>
                     <Text size="sm" fw="bold">
-                      Products
+                      Productos
                     </Text>
                   </Table.Td>
                 </Table.Tr>
@@ -483,8 +483,7 @@ export const MachineNode = memo((props: IMachineNodeProps) => {
             ) : (
               <Stack>
                 <Text fs="italic" size="sm">
-                  Click on the node to see available actions, like ignoring this
-                  recipe or switching to an alternate recipe.
+                  Haz clic en el nodo para ver las acciones disponibles, como ignorar esta receta o cambiar a una receta alternativa.
                 </Text>
               </Stack>
             )}

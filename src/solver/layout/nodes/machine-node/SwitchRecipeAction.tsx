@@ -73,7 +73,7 @@ export function SwitchRecipeAction(props: ISwitchRecipeActionProps) {
       labelProps={{ w: '100%' }}
       label={
         <Group justify="space-between">
-          <span>Alternate recipes</span>
+          <span>Recetas alternativas</span>
         </Group>
       }
       value={allowedRecipes}
