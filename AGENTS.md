@@ -10,7 +10,7 @@
 - **Savegame import** — parse `.sav` game files to seed the planner with real in-game data
 - **Cloud sync** — optional Supabase-backed authentication and remote save/load
 
-Live site: https://satisfactory-logistics.xyz
+Live site: proyecto-attero.vercel.app
 
 ---
 

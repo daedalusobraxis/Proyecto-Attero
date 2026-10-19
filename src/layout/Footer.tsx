@@ -8,7 +8,7 @@ import classes from './Footer.module.css';
 
 const links = [
   {
-    link: 'https://github.com/rockfactory/satisfactory-logistics',
+    link: 'https://github.com/daedalusobraxis/Proyecto-Attero',
     label: 'GitHub',
     labelNode: (
       <Group gap="xs">
@@ -17,7 +17,7 @@ const links = [
       </Group>
     ),
   },
-  { link: 'mailto:info@satisfactory-logistics.xyz', label: 'Contact' },
+  { link: 'mailto:daedalus.obraxis@gmail.com', label: 'Contact' },
   { link: '/privacy-policy', label: 'Privacy Policy' },
 ];
 
@@ -55,49 +55,11 @@ export function Footer({ compact }: { compact?: boolean }) {
         </Group>
         {compact ? (
           <Group gap="sm">
-            <Anchor
-              c="dimmed"
-              size="sm"
-              href="https://ko-fi.com/satisfactorylogistics"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Donate
-            </Anchor>
-            <Anchor
-              c="dimmed"
-              size="sm"
-              href="https://satisfactorylogistics.featurebase.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Feedback
-            </Anchor>
-            <Anchor
-              c="dimmed"
-              size="sm"
-              href="https://discord.gg/Crd8r87dwY"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Group gap={4}>
-                <IconBrandDiscord size={14} />
-                Discord
-              </Group>
-            </Anchor>
+            
           </Group>
         ) : (
           <Group>
-            <KofiSupportButton />
-            <FeedbackButton />
-            <Button
-              className={classes.discordButton}
-              leftSection={<IconBrandDiscord size={20} />}
-              component="a"
-              href="https://discord.gg/Crd8r87dwY"
-            >
-              Join Discord
-            </Button>
+
           </Group>
         )}
       </Container>
@@ -113,12 +75,12 @@ export function Footer({ compact }: { compact?: boolean }) {
           />
           <Container className={classes.inner} size="lg">
             <Text size="sm" c="dimmed">
-              The assets comes from Satisfactory or from websites created and
-              owned by Coffee Stain Studios, who hold the copyright of
-              Satisfactory.
+              Los recursos provienen de Satisfactory o de sitios web creados y
+              propiedad de Coffee Stain Studios, quienes poseen los derechos de autor
+              de Satisfactory.
               <br />
-              All trademarks and registered trademarks present in the images are
-              proprietary to Coffee Stain Studios.
+              Todas las marcas comerciales y marcas registradas presentes en las imágenes son
+              propiedad de Coffee Stain Studios.
             </Text>
           </Container>
         </>

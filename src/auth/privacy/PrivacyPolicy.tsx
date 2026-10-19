@@ -18,12 +18,12 @@ export const PrivacyPolicy = () => {
         </Button>
         <h1>Privacy Policy for Satisfactory Logistics</h1>
         <p>
-          Effective Date: <strong>29/09/2024</strong>
+          Effective Date: <strong>18/10/2026</strong>
         </p>
         <p>
           At Satisfactory Logistics, accessible from{' '}
-          <a href="https://satisfactory-logistics.xyz">
-            satisfactory-logistics.xyz
+          <a href="proyecto-attero.vercel.app">
+            proyecto-attero.vercel.app
           </a>
           , we are committed to protecting your privacy and your personal data.
           This Privacy Policy explains how we collect, use, and protect your
@@ -77,7 +77,7 @@ export const PrivacyPolicy = () => {
         </ul>
         <p>
           To exercise these rights, please contact us at
-          info@satisfactory-logistics.xyz.
+          daedalus.obraxis@gmail.com.
         </p>
 
         <h2>Third-Party Services</h2>
@@ -115,9 +115,9 @@ export const PrivacyPolicy = () => {
           Email:{' '}
           <Anchor<'a'>
             component="a"
-            href="mailto:info@satisfactory-logistics.xyz"
+            href="mailto:daedalus.obraxis@gmail.com"
           >
-            info@satisfactory-logistics.xyz
+            daedalus.obraxis@gmail.com
           </Anchor>
         </p>
       </Container>

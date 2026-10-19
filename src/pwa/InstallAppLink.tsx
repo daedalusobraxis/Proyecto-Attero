@@ -57,13 +57,4 @@ export function InstallAppLink() {
       setDeferred(null);
     }
   };
-
-  return (
-    <Anchor component="button" c="dimmed" size="sm" onClick={handleClick}>
-      <Group gap={4}>
-        <IconDownload size={14} />
-        Install app
-      </Group>
-    </Anchor>
-  );
 }
