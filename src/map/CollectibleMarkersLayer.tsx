@@ -132,8 +132,8 @@ function buildPopupHtml(
       </div>
       <p class="map-marker-popup__method">${description}</p>
       <dl class="map-marker-popup__stats">
-        <dt>Coordinates</dt><dd>${x} / ${y}</dd>
-        <dt>Altitude</dt><dd>${altitude}</dd>
+        <dt>Coordenadas</dt><dd>${x} / ${y}</dd>
+        <dt>Altitud</dt><dd>${altitude}</dd>
         ${schematicHtml}
       </dl>
       ${unlockHtml}

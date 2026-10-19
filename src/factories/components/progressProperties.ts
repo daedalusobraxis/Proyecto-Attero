@@ -20,27 +20,27 @@ export const progressProperties: Record<
 > = {
   Draft: {
     color: 'gray',
-    label: 'Draft',
+    label: 'Borrador',
     Icon: IconProgressHelp,
   },
   todo: {
     color: 'yellow',
-    label: 'Todo',
+    label: 'Pendiente',
     Icon: IconCircle,
   },
   in_progress: {
     color: 'blue',
-    label: 'In progress',
+    label: 'En progreso',
     Icon: IconProgress,
   },
   done: {
     color: 'green',
-    label: 'Done',
+    label: 'Hecho',
     Icon: IconCircleCheck,
   },
   disabled: {
     color: 'red',
-    label: 'Disabled',
+    label: 'Deshabilitado',
     Icon: IconPlayerPause,
   },
 };

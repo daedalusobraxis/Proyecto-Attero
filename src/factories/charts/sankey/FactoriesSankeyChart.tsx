@@ -105,9 +105,9 @@ export function FactoriesSankeyChart(props: IFactoriesSankeyChartProps) {
       <Container size="lg" mt={80} mb={100}>
         <Box ta="center">
           <IconAlertCircle size={60} stroke={1.2} />
-          <Text size="xl">No factories to display</Text>
+          <Text size="xl">No hay fábricas que mostrar</Text>
           <Text size="sm">
-            Add atleast two factories with inputs and outputs to see the chart
+            Añade al menos dos fábricas con entradas y salidas para ver el gráfico.
           </Text>
         </Box>
       </Container>

@@ -2339,7 +2339,7 @@
     "id": "Desc_OreCopper_C",
     "index": 146,
     "name": "Copper Ore",
-    "displayName": "Copper Ore",
+    "displayName": "Mineral de cobre",
     "description": "Used for crafting.\r\nA basic resource primarily used for electricity.",
     "form": "Solid",
     "sinkPoints": 3,

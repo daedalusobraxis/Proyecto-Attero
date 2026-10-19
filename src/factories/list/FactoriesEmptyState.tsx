@@ -16,9 +16,9 @@ export const FactoriesEmptyState = () => {
   return (
     <Stack gap="xs" align="center" mih={200} mt={60} mb={90}>
       <IconBuildingFactory size={64} stroke={1.2} />
-      <Text fz="h2">Let's build some factories!</Text>
+      <Text fz="h2">¡Construyamos algunas fábricas!</Text>
       <Text size="sm" c="dark.2">
-        Add factories to start planning your logistics.
+        Añade fábricas para empezar a planificar tu logística.
       </Text>
       <Button
         data-tutorial-id="add-factory-btn"
@@ -36,7 +36,7 @@ export const FactoriesEmptyState = () => {
           navigate(factoryId);
         }}
       >
-        Add first factory
+        Añadir la primera fábrica
       </Button>
 
       <Divider
@@ -44,7 +44,7 @@ export const FactoriesEmptyState = () => {
         mt="lg"
         mb="lg"
         classNames={{ label: classes.emptyDividerLabel }}
-        label="Do you want to import your factories from this or another tool?"
+        label="¿Quieres importar tus fábricas desde esta u otra herramienta?"
       />
       <Button
         component={Link}
@@ -53,7 +53,7 @@ export const FactoriesEmptyState = () => {
         leftSection={<IconDeviceGamepad size={16} stroke={2} />}
         to="/games"
       >
-        Import and Manage Games
+        Importar y gestionar juegos
       </Button>
     </Stack>
   );

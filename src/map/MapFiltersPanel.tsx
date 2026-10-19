@@ -473,7 +473,7 @@ export function MapFiltersPanel({ gameId }: MapFiltersPanelProps) {
             {PURITIES.map(purity => (
               <Tooltip
                 key={purity}
-                label={`Mostar solo nodos ${getPurityLabel(purity)}`}
+                label={`Mostrar solo nodos: ${getPurityLabel(purity)}`}
                 withinPortal
               >
                 <button

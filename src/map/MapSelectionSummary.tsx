@@ -137,8 +137,8 @@ export function MapSelectionSummary({ gameId }: MapSelectionSummaryProps) {
           <Tooltip
             label={
               homogeneousResource
-                ? 'Assign these nodes to a factory World input'
-                : 'Select a single resource type to assign.'
+                ? 'Asigna estos nodos a una entrada de mundo de fábrica.'
+                : 'Selecciona un único tipo de recurso para asignar.'
             }
             withArrow
           >
@@ -151,7 +151,7 @@ export function MapSelectionSummary({ gameId }: MapSelectionSummaryProps) {
               disabled={!homogeneousResource}
               data-tutorial-id="map-assign-to-input"
             >
-              Assign to input…
+              Asignar a la entrada…
             </Button>
           </Tooltip>
           <Button

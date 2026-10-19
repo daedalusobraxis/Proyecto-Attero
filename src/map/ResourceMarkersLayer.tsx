@@ -121,13 +121,13 @@ function buildPopupHtml(
   // Action button labels and CSS modifier flags. Each button toggles
   // a piece of state; the modifier class lets CSS surface the
   // currently-active variant (e.g. green "used" buttons).
-  const usedLabel = isUsed ? 'Mark as unused' : 'Mark as used';
+  const usedLabel = isUsed ? 'Marcar como no utilizado' : 'Marcar como utilizado';
   const usedModifier = isUsed ? ' map-marker-popup__action--used' : '';
-  const selectLabel = isSelected ? 'Remove from selection' : 'Add to selection';
+  const selectLabel = isSelected ? 'Quitar de la selección' : 'Añadir a la selección';
   const selectModifier = isSelected
     ? ' map-marker-popup__action--selected'
     : '';
-  const assignLabel = isAssigned ? 'Reassign factory…' : 'Assign factory…';
+  const assignLabel = isAssigned ? 'Reasignar fábrica…' : 'Asignar fábrica…';
 
   const nodeIdAttr = escapeHtml(node.id);
 
@@ -164,13 +164,13 @@ function buildPopupHtml(
           <div class="map-marker-popup__name">${name}${pills ? ` ${pills}` : ''}</div>
           <div class="map-marker-popup__meta">
             <span class="map-marker-popup__purity-dot" style="background-color:${purityColor};" aria-hidden="true"></span>
-            ${escapeHtml(purityLabel)} purity
+            Pureza: ${escapeHtml(purityLabel)}
           </div>
         </div>
       </div>
       <dl class="map-marker-popup__stats">
-        <dt>Coordinates</dt><dd>${x} / ${y}</dd>
-        <dt>Altitude</dt><dd>${altitude}</dd>
+        <dt>Coordenadas</dt><dd>${x} / ${y}</dd>
+        <dt>Altitud</dt><dd>${altitude}</dd>
       </dl>
       ${methodHtml}
       ${assignmentLine}
